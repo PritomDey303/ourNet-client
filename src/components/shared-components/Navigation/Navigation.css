@@ -1,0 +1,17 @@
+.main-nav {
+  border-bottom: 2px solid brown;
+}
+.nav-item {
+  color: brown;
+  margin: 0px 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.nav-item:hover {
+  text-decoration: none;
+  color: tomato;
+}
+
+.active-nav-item {
+  color: tomato;
+}
