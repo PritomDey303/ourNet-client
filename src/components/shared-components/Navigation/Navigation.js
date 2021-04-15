@@ -33,14 +33,6 @@ export default function Navigation() {
             exact
             className="nav-item"
             activeClassName="active-nav-item"
-            to="/services"
-          >
-            Services
-          </NavLink>
-          <NavLink
-            exact
-            className="nav-item"
-            activeClassName="active-nav-item"
             to="/review"
           >
             Reviews
@@ -52,6 +44,14 @@ export default function Navigation() {
             to="/admin"
           >
             Admin
+          </NavLink>
+          <NavLink
+            exact
+            className="nav-item"
+            activeClassName="active-nav-item"
+            to="/dashboard"
+          >
+            Dashboard
           </NavLink>
           <NavLink
             exact

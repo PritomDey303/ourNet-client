@@ -5,7 +5,7 @@ const reviews = [
     email: "demo@getDefaultNormalizer.com",
     review:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse metus odio, semper in mi eget, tempus gravida lacus. Vivamus in cursus lectus.",
-    rating: 5,
+    rating: 2,
     img: "https://upload.wikimedia.org/wikipedia/commons/7/78/Hk_P-plate.svg",
   },
   {
@@ -14,7 +14,7 @@ const reviews = [
     email: "demo@getDefaultNormalizer.com",
     review:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse metus odio, semper in mi eget, tempus gravida lacus. Vivamus in cursus lectus.",
-    rating: 5,
+    rating: 4,
     img: "https://upload.wikimedia.org/wikipedia/commons/7/78/Hk_P-plate.svg",
   },
   {
@@ -32,7 +32,7 @@ const reviews = [
     email: "demo@getDefaultNormalizer.com",
     review:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse metus odio, semper in mi eget, tempus gravida lacus. Vivamus in cursus lectus.",
-    rating: 5,
+    rating: 3,
     img: "https://upload.wikimedia.org/wikipedia/commons/7/78/Hk_P-plate.svg",
   },
 ];
