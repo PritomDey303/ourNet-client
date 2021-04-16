@@ -83,7 +83,7 @@ export default function ReviewMain() {
           </div>
 
           <button
-            className="btn btn-warning text-dark w-100 py-2"
+            className="btn btn-danger text-light w-100 py-2"
             type="submit"
           >
             Submit

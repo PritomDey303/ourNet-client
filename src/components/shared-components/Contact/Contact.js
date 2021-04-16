@@ -23,7 +23,7 @@ export default function Contact() {
           <Col md={6} data-aos="fade-right" data-aos-duration="1500">
             <iframe
               title="google-map"
-              width="520"
+              width="100%"
               height="500"
               frameBorder="0"
               scrolling="no"

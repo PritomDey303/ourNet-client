@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../../../App";
 import "./Navigation.css";
 export default function Navigation() {
+  const [LoggedInUser] = useContext(UserContext);
   return (
     <Navbar
       collapseOnSelect
@@ -49,17 +51,17 @@ export default function Navigation() {
             exact
             className="nav-item"
             activeClassName="active-nav-item"
-            to="/dashboard"
+            to="/contact"
           >
-            Dashboard
+            Contact
           </NavLink>
           <NavLink
             exact
             className="nav-item"
             activeClassName="active-nav-item"
-            to="/contact"
+            to="/login"
           >
-            Contact
+            {LoggedInUser.displayName ? LoggedInUser.displayName : "Login"}
           </NavLink>
         </Nav>
       </Navbar.Collapse>

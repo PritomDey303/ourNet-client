@@ -8,7 +8,7 @@ export default function SingleReview(props) {
     <Card
       className="bg-brand mx-3 p-3"
       data-aos="flip-left"
-      data-aos-duration="3000"
+      data-aos-duration="2000"
     >
       <Row>
         <Col xs={3}>
