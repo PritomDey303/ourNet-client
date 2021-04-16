@@ -1,18 +1,43 @@
 import { Rating } from "@material-ui/lab";
 import AOS from "aos";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Col, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { UserContext } from "../../../../App";
 
 AOS.init();
 export default function ReviewMain() {
+  const [LoggedInUser, , , , reviews, setReviews, , , URL] = useContext(
+    UserContext
+  );
   const [value, setValue] = useState(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const reviewData = {
+      name: data.name,
+      email: data.email,
+      review: data.review,
+      rating: parseInt(data.rating),
+      img: LoggedInUser.photoURL,
+    };
+    console.log(reviewData);
+    fetch(`${URL}/addreview`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviewData),
+    }).then((res) => {
+      res.status && setReviews(...reviews, reviewData);
+      res.status === 200
+        ? alert("Review updated successfully.")
+        : alert("Sorry!Something went wrong.");
+    });
+  };
   return (
     <div className="py-5 bg-brand">
       <Container>
@@ -29,19 +54,22 @@ export default function ReviewMain() {
           onSubmit={handleSubmit(onSubmit)}
         >
           <Form.Row>
-            <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Group as={Col} controlId="formGridText">
               <Form.Control
                 size="lg"
+                readOnly
                 type="text"
+                value={LoggedInUser.displayName}
                 placeholder="Enter Your Name"
                 {...register("name", { required: true })}
               />
-              {errors.name && <span className="text-danger">Invalid Name</span>}
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridPassword">
+            <Form.Group as={Col} controlId="formGridEmail">
               <Form.Control
                 size="lg"
                 type="email"
+                readOnly
+                value={LoggedInUser.email}
                 placeholder="Enter Your Email"
                 {...register("email", {
                   pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,

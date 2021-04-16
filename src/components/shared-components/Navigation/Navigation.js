@@ -18,7 +18,7 @@ export default function Navigation() {
         activeClassName="active-nav-item"
         to="/"
       >
-        <h2>Wood Mart</h2>
+        <h2 className="logo">Wood Mart</h2>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
