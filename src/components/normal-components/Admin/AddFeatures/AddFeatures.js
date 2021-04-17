@@ -5,8 +5,8 @@ import { Col, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../../../App";
 AOS.init();
-export default function AddProduct() {
-  const [, , Product, setProduct, , , , , URL] = useContext(UserContext);
+export default function AddFeatures() {
+  const [, , , , , , Feature, setFeature, URL] = useContext(UserContext);
   const [imageUrl, setImageUrl] = useState(null);
   const {
     register,
@@ -16,28 +16,28 @@ export default function AddProduct() {
 
   ///////onsubmit////
   const onSubmit = (data, e) => {
-    const productData = {
-      product_name: data.product_name,
+    console.log(data);
+    const featureData = {
+      title: data.title,
       description: data.description,
-      price: parseInt(data.price),
       img: imageUrl,
     };
-    const newArr = [...Product, productData];
+    console.log(featureData);
+    const newArr = [...Feature, featureData];
 
-    fetch(`${URL}/addproducts`, {
+    fetch(`${URL}/addfeatures`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(productData),
+      body: JSON.stringify(featureData),
     }).then((res) => {
       console.log(res);
-      res.status === 200 && setProduct(newArr);
+      res.status === 200 && setFeature(newArr);
       res.status === 200
-        ? alert("Congratulation! Product added successfully.")
+        ? alert("Congratulation!Feature updated successfully.")
         : alert("Sorry! something went wrong.Try again later.");
     });
-
     e.preventDefault();
     e.target.reset();
   };
@@ -68,10 +68,11 @@ export default function AddProduct() {
           data-aos="flip-up"
           data-aos-duration="1500"
         >
-          Add Products Here:
+          Add Features Here:
         </h1>
+
         <Form
-          onSubmit={handleSubmit(onSubmit)}
+          Submit={handleSubmit(onSubmit)}
           data-aos="fade-left"
           data-aos-duration="1500"
           className="bg-brand p-5 shadow"
@@ -81,19 +82,17 @@ export default function AddProduct() {
               <Form.Label>Product Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter product name"
-                {...register("product_name", { required: true })}
+                placeholder="Enter a title"
+                {...register("title", { required: true })}
               />
             </Form.Group>
-            {errors.product_name && (
-              <span className="text-danger">Invalid Product Name</span>
-            )}
+            {errors.title && <span className="text-danger">Invalid Title</span>}
 
             <Form.Group as={Col} controlId="formGridText">
               <Form.Label>Product Description</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter product description "
+                placeholder="Enter  description "
                 {...register("description", { required: true })}
               />
             </Form.Group>
@@ -102,17 +101,8 @@ export default function AddProduct() {
             <span className="text-danger">Invalid Description</span>
           )}
           <Form.Row>
-            <Form.Group as={Col} controlId="formGridNumber">
-              <Form.Label>Price Price</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Enter Price"
-                {...register("price", { required: true })}
-              />
-            </Form.Group>
-            {errors.price && <span className="text-danger">Invalid Price</span>}
             <Form.Group as={Col} controlId="formGridFile1">
-              <Form.Label>Product Image</Form.Label>
+              <Form.Label>Feature Image</Form.Label>
               <Form.Control type="file" onChange={handleImage} required />
             </Form.Group>
           </Form.Row>

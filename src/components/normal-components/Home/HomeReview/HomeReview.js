@@ -1,12 +1,14 @@
 import AOS from "aos";
-import React from "react";
+import React, { useContext } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
-import reviews from "../../../../fakeData/reviews.js";
+import { UserContext } from "../../../../App.js";
 import SingleReview from "./SingleReview/SingleReview";
 AOS.init();
 
 export default function HomeReview() {
+  const [, , , , reviews, , , , ,] = useContext(UserContext);
+
   const settings = {
     dots: true,
     infinite: true,

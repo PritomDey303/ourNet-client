@@ -16,7 +16,7 @@ export default function ReviewMain() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
     const reviewData = {
       name: data.name,
       email: data.email,

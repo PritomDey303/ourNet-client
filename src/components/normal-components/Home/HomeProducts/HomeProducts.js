@@ -1,10 +1,11 @@
 import AOS from "aos";
-import React from "react";
+import React, { useContext } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import products from "../../../../fakeData/products";
+import { UserContext } from "../../../../App";
 import SingleProduct from "./SingleProduct/SingleProduct";
 AOS.init();
 export default function HomeProducts() {
+  const [, , Product, , , , , ,] = useContext(UserContext);
   return (
     <div className="py-5 bg-brand" data-aos="fade-up" data-aos-duration="1500">
       <Container>
@@ -20,7 +21,7 @@ export default function HomeProducts() {
           </Col>
         </Row>
         <Row className="mt-5" xl={4} lg={3} md={2} xs={1}>
-          {products.map((product) => (
+          {Product.map((product) => (
             <SingleProduct key={product._id} product={product}></SingleProduct>
           ))}
         </Row>

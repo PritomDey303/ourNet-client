@@ -7,9 +7,8 @@ AOS.init();
 export default function SingleProduct(props) {
   const { product_name, img, price, _id } = props.product;
   return (
-    <Col className="mb-3" data-aos="flip-down" data-aos-duration="2000">
+    <Col className="mb-4" data-aos="flip-down" data-aos-duration="2000">
       <Link to={`/checkout/${_id}`}>
-        {" "}
         <Card className="w-100 product-card shadow">
           <div className="card-overlay text-light">
             <h6>Click to Order</h6>
@@ -20,7 +19,7 @@ export default function SingleProduct(props) {
               {product_name}
             </Card.Title>
             <Card.Text className="text-center text-dark">
-              Price:{price}
+              <h4 className="text-dark"> Price:${price}</h4>
             </Card.Text>
           </Card.Body>
         </Card>

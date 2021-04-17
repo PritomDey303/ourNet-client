@@ -22,10 +22,10 @@ export default function SingleReview(props) {
         <Col>
           <h3>{name}</h3>
           <p>
-            Rating: <br />{" "}
+            Rating: <br />
             <Rating name="read-only" value={rating} max={5} readOnly />
           </p>
-          <p>{review}</p>
+          <p>{review.substr(0, 200)}......</p>
         </Col>
       </Row>
     </Card>

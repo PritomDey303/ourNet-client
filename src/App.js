@@ -1,6 +1,6 @@
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Admin from "./components/normal-components/Admin/Admin";
@@ -20,6 +20,21 @@ function App() {
   const [reviews, setReviews] = useState([]);
   const [Feature, setFeature] = useState([]);
   console.log(LoggedInUser);
+
+  //fetching product data
+
+  useEffect(() => {
+    fetch(`${URL}/products`)
+      .then((res) => res.json())
+      .then((data) => setProduct(data));
+  }, []);
+
+  //fetching reviews
+  useEffect(() => {
+    fetch(`${URL}/reviews`)
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
   return (
     <div className="App">
       <UserContext.Provider
@@ -46,9 +61,9 @@ function App() {
               <Review />
             </PrivateRoute>
 
-            <Route path="/checkout/:p_id">
+            <PrivateRoute path="/checkout/:p_id">
               <CheckOut />
-            </Route>
+            </PrivateRoute>
             <Route path="/contact">
               <ContactSection />
             </Route>
