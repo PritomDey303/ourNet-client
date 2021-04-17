@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../../../App";
 AOS.init();
 export default function AddFeatures() {
-  const [, , , , , , Feature, setFeature, URL] = useContext(UserContext);
+  const [, , , , , , , setFeature, URL] = useContext(UserContext);
   const [imageUrl, setImageUrl] = useState(null);
   const {
     register,
@@ -23,7 +23,6 @@ export default function AddFeatures() {
       img: imageUrl,
     };
     console.log(featureData);
-    const newArr = [...Feature, featureData];
 
     fetch(`${URL}/addfeatures`, {
       method: "POST",
@@ -33,12 +32,14 @@ export default function AddFeatures() {
       body: JSON.stringify(featureData),
     }).then((res) => {
       console.log(res);
-      res.status === 200 && setFeature(newArr);
+      res.status === 200 &&
+        fetch(`${URL}/features`)
+          .then((res) => res.json())
+          .then((data) => setFeature(data));
       res.status === 200
         ? alert("Congratulation!Feature updated successfully.")
         : alert("Sorry! something went wrong.Try again later.");
     });
-    e.preventDefault();
     e.target.reset();
   };
   /////handleImage//////
@@ -72,7 +73,7 @@ export default function AddFeatures() {
         </h1>
 
         <Form
-          Submit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit)}
           data-aos="fade-left"
           data-aos-duration="1500"
           className="bg-brand p-5 shadow"

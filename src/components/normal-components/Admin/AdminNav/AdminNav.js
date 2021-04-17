@@ -35,7 +35,7 @@ export default function AdminNav() {
               className="sideLink"
               activeClassName="sideLinkActive"
             >
-              Product Info
+              Manage Products
             </NavLink>
           </li>
           <li>

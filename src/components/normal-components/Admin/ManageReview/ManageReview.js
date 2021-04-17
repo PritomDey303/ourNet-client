@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Container, Table } from "react-bootstrap";
+import { UserContext } from "../../../../App";
+import ManageSingleReview from "./ManageSingleReview/ManageSingleReview";
 
 export default function ManageReview() {
+  const [, , , , reviews, setReviews, , , URL] = useContext(UserContext);
+
+  useEffect(() => {
+    fetch(`${URL}/reviews`)
+      .then((res) => res.json())
+      .then((data) => {
+        setReviews(data);
+      });
+  }, [URL, setReviews]);
+  const handleDeleteReview = (id) => {
+    fetch(`${URL}/deletereview/${id}`, {
+      method: "Delete",
+    }).then((res) => {
+      if (res.ok) {
+        alert("Review successfully deleted.");
+
+        fetch(`${URL}/reviews`)
+          .then((res) => res.json())
+          .then((data) => setReviews(data));
+      } else {
+        alert("Something is wrong.Try again.");
+      }
+    });
+  };
   return (
     <div>
       <Container className="pt-5">
@@ -23,7 +49,15 @@ export default function ManageReview() {
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            {reviews.map((review) => (
+              <ManageSingleReview
+                key={review._id}
+                review={review}
+                handleDeleteReview={handleDeleteReview}
+              ></ManageSingleReview>
+            ))}
+          </tbody>
         </Table>
       </Container>
     </div>

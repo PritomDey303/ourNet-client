@@ -6,6 +6,7 @@ import SingleProduct from "./SingleProduct/SingleProduct";
 AOS.init();
 export default function HomeProducts() {
   const [, , Product, , , , , ,] = useContext(UserContext);
+  console.log(Product);
   return (
     <div className="py-5 bg-brand" data-aos="fade-up" data-aos-duration="1500">
       <Container>
@@ -21,8 +22,8 @@ export default function HomeProducts() {
           </Col>
         </Row>
         <Row className="mt-5" xl={4} lg={3} md={2} xs={1}>
-          {Product.map((product) => (
-            <SingleProduct key={product._id} product={product}></SingleProduct>
+          {Product.map((pd) => (
+            <SingleProduct key={pd._id} product={pd}></SingleProduct>
           ))}
         </Row>
       </Container>

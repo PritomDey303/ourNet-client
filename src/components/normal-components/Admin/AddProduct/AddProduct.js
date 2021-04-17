@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../../../App";
 AOS.init();
 export default function AddProduct() {
-  const [, , Product, setProduct, , , , , URL] = useContext(UserContext);
+  const [, , , setProduct, , , , , URL] = useContext(UserContext);
   const [imageUrl, setImageUrl] = useState(null);
   const {
     register,
@@ -22,7 +22,6 @@ export default function AddProduct() {
       price: parseInt(data.price),
       img: imageUrl,
     };
-    const newArr = [...Product, productData];
 
     fetch(`${URL}/addproducts`, {
       method: "POST",
@@ -32,7 +31,11 @@ export default function AddProduct() {
       body: JSON.stringify(productData),
     }).then((res) => {
       console.log(res);
-      res.status === 200 && setProduct(newArr);
+      res.status === 200 &&
+        fetch(`${URL}/products`)
+          .then((res) => res.json())
+          .then((data) => setProduct(data));
+
       res.status === 200
         ? alert("Congratulation! Product added successfully.")
         : alert("Sorry! something went wrong.Try again later.");

@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import "./SingleProduct.css";
 AOS.init();
 export default function SingleProduct(props) {
-  const { product_name, img, price, _id } = props.product;
+  const { _id, product_name, img, price } = props.product;
+  console.log(_id, product_name, price);
   return (
     <Col className="mb-4" data-aos="flip-down" data-aos-duration="2000">
       <Link to={`/checkout/${_id}`}>

@@ -1,11 +1,15 @@
 import AOS from "aos";
+import { useContext } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
-import features from "../../../../fakeData/features";
+import { UserContext } from "../../../../App";
 import SingleFeature from "./SingleFeature/SingleFeature";
 AOS.init();
 
 export default function HomeFeatures() {
+  const [, , , , , , Feature, ,] = useContext(UserContext);
+  console.log(Feature);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -57,7 +61,7 @@ export default function HomeFeatures() {
           </Col>
         </Row>
         <Slider {...settings}>
-          {features.map((feature) => (
+          {Feature.map((feature) => (
             <SingleFeature key={feature._id} feature={feature}></SingleFeature>
           ))}
         </Slider>

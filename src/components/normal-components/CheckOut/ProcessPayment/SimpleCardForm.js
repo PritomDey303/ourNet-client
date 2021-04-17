@@ -1,6 +1,7 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React from "react";
+import React, { useState } from "react";
 const SimpleCardForm = (props) => {
+  const [errorMsg, setErrorMsg] = useState(null);
   const stripe = useStripe();
   const elements = useElements();
 
@@ -26,7 +27,7 @@ const SimpleCardForm = (props) => {
     });
 
     if (error) {
-      console.log("[error]", error);
+      setErrorMsg(error.message);
     } else {
       console.log("[PaymentMethod]", paymentMethod.id);
       props.handleOrderInfo(paymentMethod.id);
@@ -36,6 +37,7 @@ const SimpleCardForm = (props) => {
   return (
     <form onSubmit={handleSubmit} className="bg-light p-3">
       <CardElement />
+      <p className="py-2 text-danger">{errorMsg}</p>
       <button
         type="submit"
         className="btn btn-danger my-3 w-100"

@@ -35,6 +35,14 @@ function App() {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
+
+  //fetching features
+
+  useEffect(() => {
+    fetch(`${URL}/features`)
+      .then((res) => res.json())
+      .then((data) => setFeature(data));
+  }, []);
   return (
     <div className="App">
       <UserContext.Provider
@@ -70,9 +78,9 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/admin">
+            <PrivateRoute path="/admin">
               <Admin />
-            </Route>
+            </PrivateRoute>
           </Switch>
         </Router>
       </UserContext.Provider>

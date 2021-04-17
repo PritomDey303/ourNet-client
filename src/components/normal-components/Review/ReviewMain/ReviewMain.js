@@ -3,10 +3,12 @@ import AOS from "aos";
 import React, { useContext, useState } from "react";
 import { Col, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
 import { UserContext } from "../../../../App";
 
 AOS.init();
 export default function ReviewMain() {
+  let history = useHistory();
   const [LoggedInUser, , , , reviews, setReviews, , , URL] = useContext(
     UserContext
   );
@@ -24,7 +26,7 @@ export default function ReviewMain() {
       rating: parseInt(data.rating),
       img: LoggedInUser.photoURL,
     };
-    console.log(reviewData);
+    const newArr = [...reviews, reviewData];
     fetch(`${URL}/addreview`, {
       method: "POST",
       headers: {
@@ -32,10 +34,11 @@ export default function ReviewMain() {
       },
       body: JSON.stringify(reviewData),
     }).then((res) => {
-      res.status && setReviews(...reviews, reviewData);
+      res.status && setReviews(newArr);
       res.status === 200
         ? alert("Review updated successfully.")
         : alert("Sorry!Something went wrong.");
+      history.push("/");
     });
   };
   return (
