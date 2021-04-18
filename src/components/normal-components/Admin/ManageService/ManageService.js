@@ -39,7 +39,7 @@ export default function ManageService() {
       >
         Service Info:
       </h1>
-      <Table striped data-aos="fade-up" data-aos-duration="1500">
+      <Table striped data-aos="fade-up" data-aos-duration="1500" responsive>
         <thead className="text-light" style={{ backgroundColor: "brown" }}>
           <tr>
             <th>Id</th>

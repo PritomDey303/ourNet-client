@@ -39,7 +39,7 @@ export default function ManageReview() {
         >
           Manage Review Here:
         </h1>
-        <Table striped data-aos="fade-up" data-aos-duration="1500">
+        <Table striped data-aos="fade-up" data-aos-duration="1500" responsive>
           <thead className="text-light" style={{ backgroundColor: "brown" }}>
             <tr>
               <th>Name</th>

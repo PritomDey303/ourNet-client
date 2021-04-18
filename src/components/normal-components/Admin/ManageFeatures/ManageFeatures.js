@@ -40,7 +40,7 @@ export default function ManageFeatures() {
         >
           Manage Features Here:
         </h1>
-        <Table striped data-aos="fade-up" data-aos-duration="1500">
+        <Table striped data-aos="fade-up" data-aos-duration="1500" responsive>
           <thead className="text-light" style={{ backgroundColor: "brown" }}>
             <tr>
               <th>Feature Id</th>
