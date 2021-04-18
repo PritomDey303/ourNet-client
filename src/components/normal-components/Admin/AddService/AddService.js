@@ -5,8 +5,8 @@ import { Col, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../../../App";
 AOS.init();
-export default function AddProduct() {
-  const [, , , setProduct, , , , , URL] = useContext(UserContext);
+export default function AddService() {
+  const [, , , setService, , , , , URL] = useContext(UserContext);
   const [imageUrl, setImageUrl] = useState(null);
   const {
     register,
@@ -16,28 +16,28 @@ export default function AddProduct() {
 
   ///////onsubmit////
   const onSubmit = (data, e) => {
-    const productData = {
-      product_name: data.product_name,
+    const serviceData = {
+      service_name: data.service_name,
       description: data.description,
       price: parseInt(data.price),
       img: imageUrl,
     };
 
-    fetch(`${URL}/addproducts`, {
+    fetch(`${URL}/addservices`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(productData),
+      body: JSON.stringify(serviceData),
     }).then((res) => {
       console.log(res);
       res.status === 200 &&
-        fetch(`${URL}/products`)
+        fetch(`${URL}/services`)
           .then((res) => res.json())
-          .then((data) => setProduct(data));
+          .then((data) => setService(data));
 
       res.status === 200
-        ? alert("Congratulation! Product added successfully.")
+        ? alert("Congratulation! Service added successfully.")
         : alert("Sorry! something went wrong.Try again later.");
     });
 
@@ -71,7 +71,7 @@ export default function AddProduct() {
           data-aos="flip-up"
           data-aos-duration="1500"
         >
-          Add Products Here:
+          Add Services Here:
         </h1>
         <Form
           onSubmit={handleSubmit(onSubmit)}
@@ -81,22 +81,28 @@ export default function AddProduct() {
         >
           <Form.Row>
             <Form.Group as={Col} controlId="formGridText">
-              <Form.Label>Product Name</Form.Label>
+              <Form.Label>Service Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter product name"
-                {...register("product_name", { required: true })}
+                placeholder="Enter Service name"
+                {...register("service_name", { required: true })}
               />
             </Form.Group>
-            {errors.product_name && (
-              <span className="text-danger">Invalid Product Name</span>
+            {errors.service_name && (
+              <span className="text-danger">Invalid Service Name</span>
             )}
 
             <Form.Group as={Col} controlId="formGridText">
-              <Form.Label>Product Description</Form.Label>
+              <Form.Label>
+                Service Features{" "}
+                <small className="text-success">
+                  ( Each feature should be separated by "/")
+                </small>
+              </Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Enter product description "
+                as="textarea"
+                rows={1}
+                placeholder="Example: Unlimited Browsing/12AM- 9PM 70mbps/100 mbps YouTube"
                 {...register("description", { required: true })}
               />
             </Form.Group>

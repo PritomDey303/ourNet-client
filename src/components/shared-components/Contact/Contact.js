@@ -35,7 +35,9 @@ export default function Contact() {
           </Col>
 
           <Col md={6} data-aos="fade-left" data-aos-duration="1500">
-            <h3 className=" display-3 text-dark">Unique Wood Products</h3>
+            <h3 className=" display-3 text-dark">
+              Best Internet Service Provider
+            </h3>
 
             <p className="t pb-4 align-left  display-7">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam

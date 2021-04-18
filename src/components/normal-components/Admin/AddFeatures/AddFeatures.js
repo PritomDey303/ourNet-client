@@ -80,7 +80,7 @@ export default function AddFeatures() {
         >
           <Form.Row>
             <Form.Group as={Col} controlId="formGridText">
-              <Form.Label>Product Name</Form.Label>
+              <Form.Label>Feature Tittle</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter a title"
@@ -90,7 +90,7 @@ export default function AddFeatures() {
             {errors.title && <span className="text-danger">Invalid Title</span>}
 
             <Form.Group as={Col} controlId="formGridText">
-              <Form.Label>Product Description</Form.Label>
+              <Form.Label>Feature Description</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter  description "

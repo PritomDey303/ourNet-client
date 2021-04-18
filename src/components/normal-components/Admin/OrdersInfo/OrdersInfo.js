@@ -29,8 +29,8 @@ export default function OrdersInfo() {
         <Table striped data-aos="fade-up" data-aos-duration="1500">
           <thead className="text-light" style={{ backgroundColor: "brown" }}>
             <tr>
-              <th>Product Id</th>
-              <th>Product Name</th>
+              <th>Service Id</th>
+              <th>Service Name</th>
               <th>Customer Name</th>
               <th>Address</th>
               <th>Mobile No</th>

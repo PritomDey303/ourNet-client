@@ -1,0 +1,33 @@
+.card-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 133, 133, 0.7);
+  cursor: pointer;
+  transition: all 3s linear;
+  z-index: 3;
+}
+.card-overlay h4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.product-card {
+  transition: 0.5s;
+}
+.product-card:hover {
+  margin-top: -20px;
+
+  -webkit-box-shadow: 0px 0px 0px 8px #dc4141, 0px 0px 0px 16px #ff7e7e,
+    0px 0px 0px 24px #ffb1b1, -38px -18px 50px -30px rgb(241, 96, 96);
+  box-shadow: 0px 0px 0px 8px #dc4141, 0px 0px 0px 16px #ff7e7e,
+    0px 0px 0px 24px #ffb1b1, -38px -18px 50px -30px rgb(241, 96, 96);
+}
+.product-card:hover .card-overlay {
+  display: block;
+}

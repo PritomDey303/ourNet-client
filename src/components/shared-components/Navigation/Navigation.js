@@ -12,13 +12,10 @@ export default function Navigation() {
       sticky="top"
       className="px-5 bg-brand main-nav"
     >
-      <Navbar.Brand
-        exact
-        className="nav-item"
-        activeClassName="active-nav-item"
-        to="/"
-      >
-        <h2 className="logo">Wood Mart</h2>
+      <Navbar.Brand>
+        <NavLink exact to="/" style={{ textDecoration: "none" }}>
+          <h2 className="logo">OurNet</h2>
+        </NavLink>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">

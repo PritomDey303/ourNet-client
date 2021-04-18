@@ -2,28 +2,28 @@ import AOS from "aos";
 import React, { useContext, useEffect } from "react";
 import { Container, Table } from "react-bootstrap";
 import { UserContext } from "../../../../App";
-import SingleProductInfo from "./SingleProductInfo/SingleProductInfo";
+import SingleManageService from "./SingleManageService/SingleManageService";
 AOS.init();
-export default function ProductInfo() {
-  const [, , Product, setProduct, , , , , URL] = useContext(UserContext);
+export default function ManageService() {
+  const [, , Service, setService, , , , , URL] = useContext(UserContext);
 
   useEffect(() => {
-    fetch(`${URL}/products`)
+    fetch(`${URL}/services`)
       .then((res) => res.json())
       .then((data) => {
-        setProduct(data);
+        setService(data);
       });
-  }, [URL, setProduct]);
+  }, [URL, setService]);
 
-  const handleDeleteProduct = (id, e) => {
-    const newArr = Product.filter((pd) => pd._id !== id);
-    fetch(`${URL}/deleteproduct/${id}`, {
+  const handleDeleteService = (id, e) => {
+    const newArr = Service.filter((pd) => pd._id !== id);
+    fetch(`${URL}/deleteService/${id}`, {
       method: "Delete",
     }).then((res) => {
       if (res.ok) {
-        alert("Product successfully deleted.");
+        alert("Service successfully deleted.");
 
-        setProduct(newArr);
+        setService(newArr);
       } else {
         alert("Something is wrong.Try again.");
       }
@@ -37,25 +37,25 @@ export default function ProductInfo() {
         data-aos="flip-up"
         data-aos-duration="1500"
       >
-        Product Info:
+        Service Info:
       </h1>
       <Table striped data-aos="fade-up" data-aos-duration="1500">
         <thead className="text-light" style={{ backgroundColor: "brown" }}>
           <tr>
             <th>Id</th>
-            <th>Product Name</th>
+            <th>Service Name</th>
             <th>Description</th>
             <th>Price</th>
             <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          {Product.map((singleProduct) => (
-            <SingleProductInfo
-              key={singleProduct._id}
-              singleProduct={singleProduct}
-              handleDeleteProduct={handleDeleteProduct}
-            ></SingleProductInfo>
+          {Service.map((singleService) => (
+            <SingleManageService
+              key={singleService._id}
+              singleService={singleService}
+              handleDeleteService={handleDeleteService}
+            ></SingleManageService>
           ))}
         </tbody>
       </Table>

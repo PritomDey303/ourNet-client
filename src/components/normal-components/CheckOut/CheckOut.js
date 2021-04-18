@@ -16,13 +16,13 @@ export default function CheckOut() {
   const stripePromise = loadStripe(
     "pk_test_51Ih8MOCvAm8ZFRSGoH5BeEuUj7cS4CGojtKHai4kmGbNSSOrUSCPcuu2NYLhVUHHlRMWWphG3B8yc6V3lsi9nVrm00MCONx4YU"
   );
-  const [LoggedInUser, , Product, , , , , , URL] = useContext(UserContext);
+  const [LoggedInUser, , Service, , , , , , URL] = useContext(UserContext);
   const { p_id } = useParams();
   const [orderInfo, setOrderInfo] = useState(null);
   let history = useHistory();
 
   console.log(p_id);
-  const requiredProduct = Product.find((pd) => pd._id === p_id);
+  const requiredService = Service.find((sr) => sr._id === p_id);
   const {
     register,
     handleSubmit,
@@ -32,7 +32,11 @@ export default function CheckOut() {
     setOrderInfo(data);
   };
   const handleOrderInfo = (payment_id) => {
-    const orderData = { payment_id: payment_id, ...orderInfo };
+    const orderData = {
+      payment_id: payment_id,
+      ...orderInfo,
+      order_state: "Pending",
+    };
     fetch(`${URL}/addorders`, {
       method: "POST",
       headers: {
@@ -67,8 +71,8 @@ export default function CheckOut() {
             <Form.Group controlId="formBasicEmail">
               <Form.Control
                 type="hidden"
-                value={requiredProduct._id}
-                {...register("product_Id")}
+                value={requiredService._id}
+                {...register("Service_Id")}
               />
             </Form.Group>
             <Form.Group controlId="formBasicEmail">
@@ -82,25 +86,25 @@ export default function CheckOut() {
                 {...register("date")}
               />
             </Form.Group>
-            <Form.Label style={{ color: "brown" }}>Product Name:</Form.Label>
+            <Form.Label style={{ color: "brown" }}>Service Name:</Form.Label>
 
             <Form.Control
               type="text"
-              placeholder="Product Name"
-              {...register("Product_name")}
-              value={requiredProduct.product_name}
+              placeholder="Service Name"
+              {...register("service_name")}
+              value={requiredService.service_name}
               readOnly
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label style={{ color: "brown" }}>
-              Product Price(in USD)
+              Service Cost(in USD)
             </Form.Label>
 
             <Form.Control
               type="number"
               placeholder="Price"
-              value={requiredProduct.price}
+              value={requiredService.price}
               {...register("price")}
               readOnly
             />
@@ -130,10 +134,10 @@ export default function CheckOut() {
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label style={{ color: "brown" }}>Delivery Address</Form.Label>
+            <Form.Label style={{ color: "brown" }}>Customer Address</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Enter Delivery Address"
+              placeholder="Enter Customer Address"
               {...register("address", { required: true })}
             />
             {errors.address && (

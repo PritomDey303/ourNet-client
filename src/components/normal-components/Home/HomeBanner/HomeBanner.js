@@ -8,7 +8,7 @@ export default function HomeBanner() {
       <div className="banner-overlay"></div>
       <div className="text-light banner-text text-center">
         <h1 data-aos="fade-up" data-aos-duration="1500">
-          America's Most Trusted Furniture.
+          Explore Over The World With OurNet
         </h1>
       </div>
     </div>

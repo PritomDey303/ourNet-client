@@ -7,9 +7,13 @@
 
 .sideNav li {
   list-style: none;
-  padding: 10px 20px;
+  padding: 10px 25px;
   margin-top: 20px;
   font-size: 20px;
+  border-bottom: 3px solid rgba(97, 95, 95, 0.2);
+}
+.sideNav ul {
+  padding: 0;
 }
 
 .sideLink {
@@ -24,9 +28,6 @@
   color: rgb(0, 253, 241);
 }
 @media only screen and (max-width: 764px) {
-  .sideNav {
-    height: 60vh;
-  }
   .sideNav ul {
     text-align: center;
   }

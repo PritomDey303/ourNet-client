@@ -17,7 +17,7 @@ export default function HomeHeader() {
                 data-aos="fade-down-left"
                 data-aos-duration="500"
               >
-                Wooden Furniture Store
+                Explore Over The World With OurNet
               </h1>
               <p
                 style={{ fontSize: "20px" }}

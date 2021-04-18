@@ -14,19 +14,18 @@ import "./components/normal-components/Review/Review";
 import Review from "./components/normal-components/Review/Review";
 export const UserContext = createContext();
 function App() {
-  const URL = "http://localhost:5000";
+  const URL = "https://ournet303.herokuapp.com";
   const [LoggedInUser, setLoggedInUser] = useState({});
-  const [Product, setProduct] = useState([]);
+  const [Service, setService] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [Feature, setFeature] = useState([]);
-  console.log(LoggedInUser);
 
   //fetching product data
 
   useEffect(() => {
-    fetch(`${URL}/products`)
+    fetch(`${URL}/services`)
       .then((res) => res.json())
-      .then((data) => setProduct(data));
+      .then((data) => setService(data));
   }, []);
 
   //fetching reviews
@@ -49,8 +48,8 @@ function App() {
         value={[
           LoggedInUser,
           setLoggedInUser,
-          Product,
-          setProduct,
+          Service,
+          setService,
           reviews,
           setReviews,
           Feature,
