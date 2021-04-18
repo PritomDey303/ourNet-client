@@ -17,7 +17,7 @@ export default function SingleService(props) {
       <Link to={`/checkout/${_id}`} style={{ textDecoration: "none" }}>
         <Card className="w-100 product-card ">
           <div className="card-overlay text-light">
-            <h4>Click to Book</h4>
+            <h4 className="shadow"> Subscribe</h4>
           </div>
           <Card.Img variant="top" src={img} style={{ height: "200px" }} />
           <Card.Body>

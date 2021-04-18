@@ -1,13 +1,26 @@
+import { CircularProgress, makeStyles } from "@material-ui/core";
 import AOS from "aos";
 import { useContext } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
 import { UserContext } from "../../../../App";
 import SingleFeature from "./SingleFeature/SingleFeature";
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    "& > * + *": {
+      marginLeft: theme.spacing(2),
+    },
+    justifyContent: "center",
+    marginTop: "20px",
+  },
+}));
 AOS.init();
 
 export default function HomeFeatures() {
   const [, , , , , , Feature, ,] = useContext(UserContext);
+  const classes = useStyles();
+
   console.log(Feature);
 
   const settings = {
@@ -60,6 +73,11 @@ export default function HomeFeatures() {
             </p>
           </Col>
         </Row>
+        {Feature.length === 0 && (
+          <div className={classes.root}>
+            <CircularProgress color="secondary" />
+          </div>
+        )}
         <Slider {...settings}>
           {Feature.map((feature) => (
             <SingleFeature key={feature._id} feature={feature}></SingleFeature>

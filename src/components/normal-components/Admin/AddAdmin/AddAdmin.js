@@ -52,10 +52,10 @@ export default function AddAdmin() {
                 {...register("email", { required: true })}
               />
             </Form.Group>
-            {errors.email && <span className="text-danger">Invalid Email</span>}
-          </Form.Row>
+          </Form.Row>{" "}
+          {errors.email && <span className="text-danger">Invalid Email</span>}
           <button
-            className="btn btn-primary ml-auto d-block mr-5 btn-lg px-5"
+            className="btn btn-danger ml-auto d-block mr-5 btn-lg px-5"
             type="submit"
           >
             Save

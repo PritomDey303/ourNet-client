@@ -22,7 +22,7 @@
 }
 
 .login {
-  background-image: url(../../../images//tree3.jpg);
+  background-image: url(../../../images/bg4.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -41,15 +41,16 @@
 }
 @keyframes slide {
   0% {
-    background-image: url(../../../images//tree5.jpg);
+    background-image: url(../../../images/bg2.jpg);
   }
   33% {
-    background-image: url(../../../images//tree.jpg);
+    background-image: url(../../../images/bg3.jpg);
   }
   67% {
-    background-image: url(../../../images//tree4.jpg);
+    background-image: url(../../../images/bg1.jpg);
   }
+
   100% {
-    background-image: url(../../../images//tree3.jpg);
+    background-image: url(../../../images//bg5.jpg);
   }
 }

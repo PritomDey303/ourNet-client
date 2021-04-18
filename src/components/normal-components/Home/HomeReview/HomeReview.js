@@ -1,13 +1,26 @@
+import { makeStyles } from "@material-ui/core";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import AOS from "aos";
 import React, { useContext } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
 import { UserContext } from "../../../../App.js";
 import SingleReview from "./SingleReview/SingleReview";
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    "& > * + *": {
+      marginLeft: theme.spacing(2),
+    },
+    justifyContent: "center",
+    marginTop: "20px",
+  },
+}));
 AOS.init();
 
 export default function HomeReview() {
   const [, , , , reviews, , , , ,] = useContext(UserContext);
+  const classes = useStyles();
 
   const settings = {
     dots: true,
@@ -59,6 +72,11 @@ export default function HomeReview() {
             </p>
           </Col>
         </Row>
+        {reviews.length === 0 && (
+          <div className={classes.root}>
+            <CircularProgress color="secondary" />
+          </div>
+        )}
         <Slider className="mt-5" {...settings}>
           {reviews.map((review) => (
             <SingleReview key={review._id} review={review}></SingleReview>

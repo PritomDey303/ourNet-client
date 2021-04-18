@@ -42,7 +42,7 @@ export default function Navigation() {
             activeClassName="active-nav-item"
             to="/admin"
           >
-            Admin
+            Dashboard
           </NavLink>
           <NavLink
             exact

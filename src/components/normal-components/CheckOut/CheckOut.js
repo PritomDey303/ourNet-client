@@ -55,7 +55,7 @@ export default function CheckOut() {
     <div>
       <Navigation />
       <div
-        className="checkout-form w-50 mx-auto my-5 bg-brand p-4"
+        className="checkout-form mx-auto my-5 bg-brand p-4"
         style={orderInfo ? { display: "none" } : { display: "block" }}
       >
         <h1 style={{ color: "brown" }} data-aos="fade-right">
@@ -165,7 +165,7 @@ export default function CheckOut() {
 
       {/* payment form */}
       <div
-        className="paymentInfo w-50 mx-auto my-5 bg-brand p-4"
+        className="paymentInfo mx-auto my-5 bg-brand p-4"
         data-aos="fade-up"
         style={orderInfo ? { display: "block" } : { display: "none" }}
       >

@@ -23,7 +23,7 @@ export default function SingleOrderInfo(props) {
           <span className="text-danger">{order_state}</span>
         ) : (
           <span className="text-success">{order_state}</span>
-        )}
+        )}{" "}
       </td>
     </tr>
   );

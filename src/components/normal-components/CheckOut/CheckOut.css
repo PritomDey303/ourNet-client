@@ -2,3 +2,13 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+.checkout-form,
+.paymentInfo {
+  width: 50%;
+}
+@media only screen and (max-width: 768px) {
+  .checkout-form,
+  .paymentInfo {
+    width: 100%;
+  }
+}

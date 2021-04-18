@@ -27,7 +27,7 @@ export default function AdminNav() {
               className="sideLink"
               activeClassName="sideLinkActive"
             >
-              Orders Info
+              User Orders Info
             </NavLink>
           </li>
           {admin.length !== 0 && (
@@ -81,6 +81,16 @@ export default function AdminNav() {
                   activeClassName="sideLinkActive"
                 >
                   Manage Reviews
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  exact
+                  to="/admin/allorders"
+                  className="sideLink"
+                  activeClassName="sideLinkActive"
+                >
+                  All Orders
                 </NavLink>
               </li>
               <li>

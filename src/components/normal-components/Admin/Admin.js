@@ -8,6 +8,7 @@ import AddAdmin from "./AddAdmin/AddAdmin";
 import AddFeatures from "./AddFeatures/AddFeatures";
 import AddService from "./AddService/AddService";
 import AdminNav from "./AdminNav/AdminNav";
+import AllOrders from "./AllOrders/AllOrders";
 import ManageFeatures from "./ManageFeatures/ManageFeatures";
 import ManageReview from "./ManageReview/ManageReview";
 import ManageService from "./ManageService/ManageService";
@@ -34,6 +35,9 @@ export default function Admin() {
 
               <Route path="/admin/addservice">
                 <AddService />
+              </Route>
+              <Route path="/admin/allorders">
+                <AllOrders />
               </Route>
 
               <Route path="/admin/manageservice">

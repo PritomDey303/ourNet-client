@@ -109,14 +109,14 @@ export default function AddFeatures() {
           </Form.Row>
           {imageUrl ? (
             <button
-              className="btn btn-primary ml-auto d-block mr-5 btn-lg px-5"
+              className="btn btn-danger ml-auto d-block mr-5 btn-lg px-5"
               type="submit"
             >
               Save
             </button>
           ) : (
             <button
-              className="btn btn-primary ml-auto d-block mr-5 btn-lg px-5"
+              className="btn btn-danger ml-auto d-block mr-5 btn-lg px-5"
               type="submit"
               disabled
             >

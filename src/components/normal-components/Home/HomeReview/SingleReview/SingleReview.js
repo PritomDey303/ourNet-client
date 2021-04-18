@@ -1,7 +1,7 @@
 import { Rating } from "@material-ui/lab";
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
-
+import UserThumb from "../../../../../images/usericon.png";
 export default function SingleReview(props) {
   const { name, review, img, rating } = props.review;
   return (
@@ -13,10 +13,18 @@ export default function SingleReview(props) {
       <Row>
         <Col xs={3}>
           <div
-            className="rounded-circle"
-            style={{ width: "50px", height: "50px" }}
+            className="rounded-circle p-1"
+            style={{ width: "60px", height: "60px" }}
           >
-            <img src={img} alt="" className="img-fluid rounded-circle " />
+            {img ? (
+              <img src={img} alt="" className="img-fluid rounded-circle " />
+            ) : (
+              <img
+                src={UserThumb}
+                alt=""
+                className="img-fluid rounded-circle "
+              />
+            )}
           </div>
         </Col>
         <Col>

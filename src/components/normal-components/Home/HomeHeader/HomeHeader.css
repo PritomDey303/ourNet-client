@@ -1,10 +1,12 @@
 .home-header {
-  background-image: url(../../../../images/tree.jpg);
+  background-image: url(../../../../images/bg5.jpg);
   position: relative;
   padding-bottom: 150px;
   background-repeat: no-repeat;
   background-size: cover;
-  animation: slide 10s infinite;
+  background-position: center center;
+
+  animation: slide 20s infinite;
 }
 .home-header-overlay {
   position: absolute;
@@ -17,19 +19,19 @@
 .home-header-text {
   width: 50%;
 }
-@media only screen and (max-width: 764px) {
+@media only screen and (max-width: 768px) {
   .home-header-text {
     width: 100%;
   }
 }
 @keyframes slide {
   0% {
-    background-image: url(../../../../images/tree2.jpg);
+    background-image: url(../../../../images/bg4.jpg);
   }
   33% {
-    background-image: url(../../../../images/tree3.jpg);
+    background-image: url(../../../../images/bg3.jpg);
   }
   67% {
-    background-image: url(../../../../images/tree4.jpg);
+    background-image: url(../../../../images/bg1.jpg);
   }
 }
