@@ -16,7 +16,7 @@ export default function AllOrders() {
   }, [URL, setOrderInfo]);
 
   const handleOrder = (id, state) => {
-    fetch(`http://localhost:5000/updateorder/${id}?state=${state}`, {
+    fetch(`${URL}/updateorder/${id}?state=${state}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
     }).then((res) => {
