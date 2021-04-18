@@ -19,11 +19,15 @@ export default function SingleOrderInfo(props) {
       <td>{mobile}</td>
       <td>{date}</td>
       <td>
-        {order_state === "Pending" ? (
+        {order_state === "Pending" && (
           <span className="text-danger">{order_state}</span>
-        ) : (
+        )}
+        {order_state === "Ongoing" && (
+          <span className="text-warning">{order_state}</span>
+        )}
+        {order_state === "Completed" && (
           <span className="text-success">{order_state}</span>
-        )}{" "}
+        )}
       </td>
     </tr>
   );

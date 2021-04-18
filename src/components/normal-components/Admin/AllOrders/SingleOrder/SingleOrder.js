@@ -1,4 +1,5 @@
 import React from "react";
+import { Form } from "react-bootstrap";
 
 export default function SingleOrder(props) {
   const {
@@ -9,8 +10,8 @@ export default function SingleOrder(props) {
     mobile,
     date,
     payment_id,
-    order_state,
   } = props.order;
+
   return (
     <tr>
       <td>{payment_id} </td>
@@ -19,16 +20,19 @@ export default function SingleOrder(props) {
       <td>{address}</td>
       <td>{mobile}</td>
       <td>{date}</td>
-      {order_state === "Pending" ? (
-        <button
-          className="btn btn-danger text-light"
-          onClick={() => props.handleOrder(_id)}
+
+      <Form.Group controlId="exampleForm.ControlSelect1">
+        <Form.Label>Example select</Form.Label>
+        <Form.Control
+          as="select"
+          value={props.order_state}
+          onChange={(e) => props.handleOrder(_id, e.target.value)}
         >
-          Complete
-        </button>
-      ) : (
-        <span className="text-success">Completed</span>
-      )}
+          <option className="text-danger">Pending</option>
+          <option className="text-warning">Ongoing</option>
+          <option className="text-success">Completed</option>
+        </Form.Control>
+      </Form.Group>
     </tr>
   );
 }

@@ -15,13 +15,13 @@ export default function AllOrders() {
       });
   }, [URL, setOrderInfo]);
 
-  const handleOrder = (id) => {
-    fetch(`${URL}/updateorder/${id}`, {
+  const handleOrder = (id, state) => {
+    fetch(`http://localhost:5000/updateorder/${id}?state=${state}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
     }).then((res) => {
       res.status === 200
-        ? alert("Order Completed Successfully.")
+        ? alert("Order State Updated Successfully.")
         : alert("Sorry! Something went wrong.Try Again.");
       res.status === 200 &&
         fetch(`${URL}/allorders`)
@@ -61,6 +61,7 @@ export default function AllOrders() {
                 handleOrder={handleOrder}
                 key={order._id}
                 order={order}
+                order_state={order.order_state}
               ></SingleOrder>
             ))}
           </tbody>
