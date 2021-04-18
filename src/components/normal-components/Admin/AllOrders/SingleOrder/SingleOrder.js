@@ -22,7 +22,6 @@ export default function SingleOrder(props) {
       <td>{date}</td>
 
       <Form.Group controlId="exampleForm.ControlSelect1">
-        <Form.Label>Example select</Form.Label>
         <Form.Control
           as="select"
           value={props.order_state}

@@ -43,8 +43,17 @@ export default function AllOrders() {
         >
           All Order Information Here:
         </h1>
-        <Table striped data-aos="fade-up" data-aos-duration="1500">
-          <thead className="text-light" style={{ backgroundColor: "brown" }}>
+        <Table
+          striped
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          responsive
+          size="sm"
+        >
+          <thead
+            className="text-light py-2"
+            style={{ backgroundColor: "brown" }}
+          >
             <tr>
               <th>Payment Id</th>
               <th>Service Name</th>
@@ -52,7 +61,7 @@ export default function AllOrders() {
               <th>Address</th>
               <th>Mobile No</th>
               <th>Order Date</th>
-              <th>Order State</th>
+              <th>Order Status</th>
             </tr>
           </thead>
           <tbody>

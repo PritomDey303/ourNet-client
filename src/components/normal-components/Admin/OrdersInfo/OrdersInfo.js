@@ -26,7 +26,7 @@ export default function OrdersInfo() {
         >
           Order Information Here:
         </h1>
-        <Table striped data-aos="fade-up" data-aos-duration="1500">
+        <Table striped data-aos="fade-up" data-aos-duration="1500" responsive>
           <thead className="text-light" style={{ backgroundColor: "brown" }}>
             <tr>
               <th>Service Id</th>
@@ -35,7 +35,7 @@ export default function OrdersInfo() {
               <th>Address</th>
               <th>Mobile No</th>
               <th>Order Date</th>
-              <th>Order State</th>
+              <th>Order Status</th>
             </tr>
           </thead>
           <tbody>
